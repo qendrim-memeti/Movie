@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Review</title>
+</head>
+<body>
+<h2>Create Review for <span th:text="${review.movie.title}"></span></h2>
+
+<form th:action="@{/movies/{id}/reviews/create(id=${review.movie.id})}" th:object="${review}" method="post">
+    <label>Review: <textarea th:field="*{review}" rows="4" cols="50"></textarea></label><br/>
+    <label>Rating: <input type="text" th:field="*{rating}" /></label><br/>
+    <input type="submit" value="Submit Review" />
+</form>
+
+<a th:href="@{/movies/{id}(id=${review.movie.id})}">Back to Movie Details</a>
+</body>
+</html>

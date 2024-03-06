@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Movie</title>
+</head>
+<body>
+<h2>Create Movie</h2>
+
+<form th:action="@{/movies/create}" th:object="${movie}" method="post">
+    <label>Title: <input type="text" th:field="*{title}" /></label><br/>
+    <label>Description: <input type="text" th:field="*{description}" /></label><br/>
+    <label>Genre: <input type="text" th:field="*{genre}" /></label><br/>
+    <label>Year: <input type="text" th:field="*{year}" /></label><br/>
+    <input type="submit" value="Create Movie" />
+</form>
+
+<a th:href="@{/movies}">Back to Movies List</a>
+</body>
+</html>
